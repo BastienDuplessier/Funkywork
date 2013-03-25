@@ -1,9 +1,9 @@
--module(author).
+-module(fw).
 
 %% ====================================================================
 %% API functions
 %% ====================================================================
--export([build/2, build/3, add/2]).
+-export([start/0, refresh_layout/0]).
 
 %% ====================================================================
 %% Includes
@@ -15,21 +15,12 @@
 %% Internal functions
 %% ====================================================================
 
-%% Build a new Record
-build(Nickname, Mail) ->
-	Id = database:get_next_id(author),
-	build(Id, Nickname, Mail).
+%% Start Session
+start() ->
+	debug_module:move_to_root(),
+	mnesia:start().
 
-build(Id, Nickname, Mail) ->
-	#author{
-		id = Id,
-		nickname = Nickname,
-		mail = Mail
-	}.
-
-%% Add author
-add(Nickname, Mail) ->
-	Record = build(Nickname, Mail),
-	database:insert(Record),
+refresh_layout() ->
+	file_util:cp("Layout/style.css", "Out/style.css"),
+	file_util:cp("Layout/front.html", "Out/index.html"),
 	ok.
-

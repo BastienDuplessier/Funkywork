@@ -1,0 +1,8 @@
+<:title=A title:>
+<:url=page_url.html:>
+<:authors=author1,author2:>
+<:description=Some text:>
+<:keywords=one,two,three,four:>
+<:comment=true|false:>
+
+Blablablabla

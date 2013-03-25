@@ -86,9 +86,9 @@ a:hover{
 .button{
 	background-color:#e5e7f0;
 	color: #727581;
-	width:29%;
+	width:31%;
 	height:40%;
-	margin:2%;
+	margin:1%;
 	float:left;
 	text-align:center;
 }
@@ -104,6 +104,17 @@ a:hover{
 	height: 100%;
 	margin-top:22%;
 }
+
+.button a{
+	color:#727581;
+	text-decoration: none;
+	border:0px solid white;
+}
+
+.button a:hover{
+	color:#ffffff;
+}
+
 
 hr{
 	border: 1px solid red;

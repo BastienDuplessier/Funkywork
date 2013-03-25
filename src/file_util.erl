@@ -32,7 +32,9 @@ get_file_info(File) ->
 
 %% Get file's line : API
 get_file_lines(File) ->
-	get_file_lines(open_file(File), []).
+	List = get_file_lines(open_file(File), []),
+	Fun = fun(X) -> re:replace(X, "\n", "", [{return, list}]) end,
+	lists:map(Fun, List).
 
 %% Get file's line function
 get_file_lines(FileData, Acc) ->
