@@ -3,7 +3,7 @@
 %% ====================================================================
 %% API functions
 %% ====================================================================
--export([getParam/1]).
+-export([getParam/1, getParamValue/2]).
 
 %% ====================================================================
 %% Includes
@@ -27,4 +27,17 @@ getParam([Head|Tail], Acc, HTML) ->
 			getParam(Tail, Args, HTML);
 		_ -> {ok, Acc, [Head|Tail]}
 	end.
+
+%% Extract Param Value
+getParamValue(Name, List) when Name == keywords ; Name == authors ->
+	Result = getParamValue(Name, List),
+	string:tokens(Result, ",");
+getParamValue(Name, List) ->
+	Fun = fun(X) -> case X of {Name, _} -> true; _ -> false end end,
+	case lists:filter(Fun, List) of
+		[{_,Value}] -> Value;
+		_ -> undefined
+	end.
 	
+
+			
