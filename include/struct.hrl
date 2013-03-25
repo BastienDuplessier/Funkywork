@@ -1,0 +1,30 @@
+%% Database records
+-record(author, 
+		{
+			id,
+			nickname, 
+			mail
+  		}).
+-record(paper, 
+		{
+		 	id,
+			url,
+			title,
+			authors,
+			description,
+			date,
+			parent,
+			draft,
+			series_id,
+			keywords,
+			comment,
+			content
+		}).
+-record(series,
+		{
+		 	id,
+			url,
+			parent,
+			title, 
+			description
+		 }).

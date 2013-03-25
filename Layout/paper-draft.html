@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="CSS/googlecode.css">
+		<script src="JS/highlight.pack.js"></script>
+		<script type="text/javascript">
+			hljs.tabReplace = '    ';
+			hljs.initHighlightingOnLoad();
+		</script>
+		<title>Page test</title>
+	</head>
+	<body>
+		<div id="headbarre"></div>
+		<div id="layout">
+			<ul class="fil">
+				<li><a href="#">Funkywork</a></li>
+				<li><a href="#">Liste des articles</a></li>
+			</ul>
+			<h3 class="paper_date">25 Décembre 2012</h3>
+			<h1 class="paper_title_h">La curryfication en ruby</h1>
+			<h2 class="paper_subtitle_h">Rédigé par Nuki, Grim et Raho</h2>
+			<div id="paper">
+				onsectetur adipiscing elit. Phasellus imperdiet eros id mi vestibulum consectetur. Mauris gravida lorem ut metus scelerisque commodo fringilla ligula mattis. Curabitur a neque sapien. Aliquam cursus suscipit neque sit amet fringilla. Fusce commodo pellentesque magna, sed ornare nunc ultricies eu. In non nibh id sapien volutpat tincidunt. Aliquam erat volutpat. Fusce eget pharetra metus. Etiam a lectus ut augue mollis tristique. Nam luctus hendrerit arcu nec euismod. Quisque hendrerit neque et dolor semper sed adipiscing tellus scelerisque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. In id nibh vitae est accumsan ornare. Duis eu massa turpis.
+				
+<pre><code class="erlang">-module(file_util).
+%% Get file's line function
+get_file_lines(FileData, Acc) ->
+	case io:get_line(FileData, "") of
+		eof -> 
+			file:close(FileData),
+			lists:reverse(Acc);
+		Line -> get_file_lines(FileData, [Line|Acc])
+	end.
+</code></pre>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</p>
+				<h3>Subtitle</h3>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet eros id mi vestibulum consectetur. Mauris gravida lorem ut metus scelerisque commodo fringilla ligula mattis. Curabitur a neque sapien. Aliquam cursus suscipit neque sit amet fringilla. Fusce commodo pellentesque magna, sed ornare nunc ultricies eu. In non nibh id sapien volutpat tincidunt. Aliquam erat volutpat. Fusce eget pharetra metus. Etiam a lectus ut augue mollis tristique. Nam luctus hendrerit arcu nec euismod. Quisque hendrerit neque et dolor semper sed adipiscing tellus scelerisque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. In id nibh vitae est accumsan ornare. Duis eu massa turpis.
+				</p>
+			</div>
+			
+			<div id="footer">Funkywork a été propulsé par <a href="https://github.com/Funkywork/Funkywork">Funkywork</a></div>
+			
+		</div>
+	</body>
+</html>
