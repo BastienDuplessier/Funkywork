@@ -22,7 +22,7 @@ database_create_schema() ->
 	mnesia:create_schema([node()]).
 
 %% Create table
-create_table(Record) when is_tuple(Record)->
+create_table(Record) ->
 	case mnesia:create_table(
 		   Record, 
 		   [{attributes, record_info_var(Record)},

@@ -3,7 +3,7 @@
 %% ====================================================================
 %% API functions
 %% ====================================================================
--export([build/11, build/12, add/11]).
+-export([build/11, build/12, add/11, all/0]).
 
 %% ====================================================================
 %% Includes
@@ -46,3 +46,10 @@ add(Url, Title, Authors, Description, Date, Parent, Draft,
 	  Series_id, Keywords, Comment, Content),
 	database:insert(Record),
 	ok.
+
+%% Get all papers
+all() ->
+	Transaction = fun() -> mnesia:match_object(#paper{ _ = '_'}) end,
+	{atomic, Result} = mnesia:transaction(Transaction),
+	Result.
+	

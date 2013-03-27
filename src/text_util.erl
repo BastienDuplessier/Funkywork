@@ -38,6 +38,13 @@ getParamValue(Name, List) ->
 		[{_,Value}] -> Value;
 		_ -> undefined
 	end.
+
+%% Build Paper from raw
+build(Raw) -> 
+	File = file_util:get_file_lines(Raw),
+	Params = getParam(File),
+	
+	
 	
 
 			

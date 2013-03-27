@@ -3,7 +3,7 @@
 %% ====================================================================
 %% API functions
 %% ====================================================================
--export([build/4, build/5, add/4]).
+-export([build/4, build/5, add/4, all/0]).
 
 %% ====================================================================
 %% Includes
@@ -34,3 +34,10 @@ add(Url, Parent, Title, Description) ->
 	Record = build(Url, Parent, Title, Description),
 	database:insert(Record),
 	ok.
+
+%% Get all Series
+all() ->
+	Transaction = fun() -> mnesia:match_object(#series{ _ = '_'}) end,
+	{atomic, Result} = mnesia:transaction(Transaction),
+	Result.
+	

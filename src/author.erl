@@ -3,7 +3,8 @@
 %% ====================================================================
 %% API functions
 %% ====================================================================
--export([build/2, build/3, add/2]).
+-export([build/2, build/3, add/2, all/0]).
+-export([getById/1, getByNickname/1]).
 
 %% ====================================================================
 %% Includes
@@ -33,3 +34,20 @@ add(Nickname, Mail) ->
 	database:insert(Record),
 	ok.
 
+%% Get all authors
+all() ->
+	Transaction = fun() -> mnesia:match_object(#author{ _ = '_'}) end,
+	{atomic, Result} = mnesia:transaction(Transaction),
+	Result.
+	
+%% Get By Id
+getById(Id) ->
+	[Result] = database:select(author, Id), 
+	Result.
+
+%% Get By NickName
+getByNickname(Nick) ->
+	Filter = fun(X) -> X#author.nickname == Nick end,
+	[Result] = lists:filter(Filter, all()),
+	Result.
+						  
